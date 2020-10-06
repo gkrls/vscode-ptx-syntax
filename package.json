@@ -2,7 +2,7 @@
     "name": "vscode-ptx-syntax",
     "displayName": "vscode-ptx-syntax",
     "description": "\"Nvidia PTX syntax highlighting\"",
-    "icon": "./assets/logo.png",
+    "icon": "assets/logo.png",
     "publisher": "gks-codes",
     "version": "0.0.1",
     "engines": {
