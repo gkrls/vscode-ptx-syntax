@@ -1,0 +1,138 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PTX",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"comment": "Single line comment",
+			"name": "comment.line.ptx",
+			"match": "//.*$"
+		},
+		{
+			"comment": "Multi line comment",
+			"name": "comment.block.ptx",
+			"begin": "/\\*",
+			"end": "\\*/"
+		},
+		{
+			"comment": "Label",
+			"name": "keyword.label.ptx",
+			"match": "[a-zA-Z][a-zA-Z0-9_$]+(:|;)"
+		},
+		{
+			"comment": "Identifier",
+			"name": "variable.name",
+			"match": "([_$%][a-zA-Z0-9_$]+|[a-zA-Z0_9_$]+)"
+		}
+	],
+
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"comment": "Predication symbol @",
+					"name": "keyword.operator.predication.ptx",
+					"match": "(@|\\[|\\]|\\(|\\)|\\{|\\})"
+				},
+				{
+					"name": "entity.name.type.ptx",
+					"match": "\\.(s8|s16|s32|s64|u8|u16|u32|u64|f16|f16x2|f32|f64|b8|b16|b32|b64|pred|byte|4byte|quad)"
+				},
+				{
+					"comment": "Special Registers [A-L]",
+					"name": "keyword.other.pred-identifiers.ptx",
+					"match": "\\%(clock_hi|clock64|clock|nctaid|ctaid|dynamic_smem_size|envreg<([0-9]|[1-2][0-9]|30|31)>|globaltimer_(lo|hi)|globaltimer|gridid|laneid|lanemask_eq|lanemask_le|lanemask_lt|lanemask_ge|lanemask_gt)"
+				},
+				{
+					"comment": "Special Registers [N-Z]",
+					"name": "keyword.other.pred-identifiers.ptx",
+					"match": "\\%(ntid|nsmid|nwarpid|pm([0-7]_64|[0-7])|smid|tid|total_smem_size|warpid|WARP_SZ)"
+				},
+				{
+					"comment": "Module directives",
+					"name": "keyword.other.directive.ptx",
+					"match": "\\.(address_size|target|version)"
+				},
+				{
+					"comment": "Function directives",
+					"name": "keyword.other.directive.ptx",
+					"match": "\\.(entry|func|function|alias)"
+				},
+				{
+					"comment": "Control Flow directives",
+					"name": "keyword.other.directive.ptx",
+					"match": "\\.(branchtargets|calltargets|callprototype)"
+				},
+				{
+					"comment": "Performance directives",
+					"name": "keyword.other.directive.ptx",
+					"match": "\\.(maxnreg|maxntid|minnctapersm|maxnctapersm|noreturn|pragma|reqntid)"
+				},
+				{
+					"name": "entity.other.attribute-name.ptx",
+					"match": "\\.(reg|sreg|align|const|global|local|param|shared|manages)"
+				},
+				{
+					"comment": "Debugging directives (we put this here to match 'loc' before 'lo'",
+					"name": "keyword.other.directive.dwarf.ptx",
+					"match": "(@@DWARF|\\.(section|file|loc))"
+				},
+				{
+					"name": "entity.other.attribute-name.ptx",
+					"match": "\\.(text|x|y|z|ne|eq|gt|ge|lt|le|hi|lo|wide|sat|shiftamt|cc|uni)"
+				},
+				{
+					"comment": "Linking directives",
+					"name": "keyword.other.directive.ptx",
+					"match": "\\.(extern|visible|weak|common)"
+				},
+				{
+					"name": "constant.numeric.ptx",
+					"match": "\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b"
+				},
+				{
+					"comment": "PTX instructions [A-I]",
+					"name": "entity.name.method",
+					"match": "\\b(abs|addc|add|and|atom|bfe|bfind|bfi|bra|brx|brev|brkpt|call|clz|cnot|copysign|cos|cp|cvta|cvt|div|dp2a|dp4a|ex2|exit|fma|fns|isspacep|istypep)"
+				},
+				{
+					"comment": "PTX instructions [J-R]",
+					"name": "entity.name.method",
+					"match": "\\b(ldu|ld|lg2|lop3|mad24|madc|mad|max|membar|min|mov|mul|neg|not|or|pmevent|popc|prefetchu|prefetch|prmt|rcp|rem|ret\\;|rsqrt)"
+				},
+				{
+					"comment": "PTX instructions [S-T]",
+					"name": "entity.name.method",
+					"match": "\\b(sad|selp|setp|set|shfl|shf|shl|shr|sin|slct|sqrt|st|subc|sub|suld|suq|sured|sust|tanh|testp|tex|trap|txq|tld4)"
+				},
+				{
+					"comment": "PTX instructions [U-Z]",
+					"name": "entity.name.method",
+					"match": "\\b(vabsdiff2|vabsdiff4|vabsdiff|vadd2|vadd4|vadd|vavrg2|vavrg4|vmad|vmax2|vmax4|vmax|vmin2|vmin4|vmin|vset2|vset4|vset|vshl|vshr|vsub2|vsub4|vsub|xor)"
+				},
+				{
+					"comment": "PTX instructions (barriers)",
+					"name": "entity.name.method",
+					"match": "\\b(bar|membar|atom|red|activemask|match|redux|mbarrier|cp)"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.ptx",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ptx",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.ptx"
+}

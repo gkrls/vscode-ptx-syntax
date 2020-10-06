@@ -1,0 +1,25 @@
+{
+    "name": "vscode-ptx-syntax",
+    "displayName": "vscode-ptx-syntax",
+    "description": "\"Nvidia PTX syntax highlighting\"",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.49.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ptx",
+            "aliases": ["Nvidia PTX", "ptx", "PTX"],
+            "extensions": [".ptx"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ptx",
+            "scopeName": "source.ptx",
+            "path": "./syntaxes/ptx.tmLanguage.json"
+        }]
+    }
+}
