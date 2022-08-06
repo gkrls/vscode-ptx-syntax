@@ -3,7 +3,7 @@
     "displayName": "PTX Assembly Syntax",
     "description": "Nvidia PTX syntax highlighting",
     "icon": "assets/logo.png",
-    "publisher": "gkrls",
+    "publisher": "gkarlos",
     "version": "1.0.0",
     "license": "MIT",
     "engines": {
