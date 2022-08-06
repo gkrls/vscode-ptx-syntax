@@ -3,7 +3,7 @@
     "displayName": "PTX Assembly Syntax",
     "description": "Nvidia PTX syntax highlighting",
     "icon": "assets/logo.png",
-    "publisher": "gkarlos",
+    "publisher": "gkrls",
     "version": "1.0.0",
     "license": "MIT",
     "engines": {
@@ -27,6 +27,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/gkarlos/vscode-ptx-syntax"
+        "url": "https://github.com/gkrls/vscode-ptx-syntax"
     }
 }
